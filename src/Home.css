@@ -66,3 +66,16 @@ font-size: 40px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   border-style: solid;
 }
+.slider-container{
+    display: flex;
+    justify-content: center;
+}
+.color-picker{
+    
+    display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
