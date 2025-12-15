@@ -1,7 +1,28 @@
 .color {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+
+
+    border: 3px solid #ffffff;
+
+
+
+
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.color:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}
+
+
+.color:active {
+    transform: scale(1.05);
 }

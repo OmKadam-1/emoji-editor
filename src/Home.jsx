@@ -6,7 +6,7 @@ import "./Home.css";
 function Home() {
   const [emoji, setEmoji] = useState("😊");
   const [slidervalue, setslidervalue] = useState(50);
-  const [bgcolor, setbgcolor]=useState('white');
+  const [bgcolor, setbgcolor]=useState('');
 
   return (
     <div className="min-h-screen w-full bg-white relative">
@@ -49,10 +49,10 @@ function Home() {
           <Emojibutton emoji="🔥" setEmoji={setEmoji} />
         </div>
         <div className="color-picker">
-          <Colorbutton bgcolor={`red`} setbgcolor={setbgcolor}/>
-          <Colorbutton bgcolor={`maroon`} setbgcolor={setbgcolor}/>
-          <Colorbutton bgcolor={`blue`} setbgcolor={setbgcolor}/>
-          <Colorbutton bgcolor={`brown`} setbgcolor={setbgcolor}/>
+          <Colorbutton bgcolor={`red`} setbgcolor={bgcolor}/>
+          <Colorbutton bgcolor={`maroon`} setbgcolor={bgcolor}/>
+          <Colorbutton bgcolor={`blue`} setbgcolor={bgcolor}/>
+          <Colorbutton bgcolor={`brown`} setbgcolor={bgcolor}/>
 
 
 
