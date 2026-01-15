@@ -1,14 +1,12 @@
+import React from "react";
 import "./emojibutton.css";
 
-function Emojibutton({emoji,setEmoji}) {
+function EmojiButtons({ emoji, setEmoji }) {
   return (
-    
-      <div className="emoji" onClick={()=>
-            setEmoji((emoji))
-          }>{emoji}
-          </div>
-    
-  )
+    <button className="emoji-btn" onClick={() => setEmoji(emoji)}>
+      {emoji}
+    </button>
+  );
 }
 
-export default Emojibutton;
+export default EmojiButtons;

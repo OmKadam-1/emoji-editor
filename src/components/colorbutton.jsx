@@ -1,16 +1,14 @@
-
 import React from "react";
+import "./colorbutton.css";
 
-function Colorbutton({bgColor, setBgColor}) {
+function ColorButtons({ color, setColor }) {
   return (
-    <div
-      style={{ backgroundColor: bgColor}}
-      className="h-11 w-11 m-2 cursor-pointer"
-      onClick={() => {
-        setBgColor(bgColor);
-      }}
-    ></div>
+    <button
+      className="colorBtn"
+      style={{ backgroundColor: color }}
+      onClick={() => setColor(color)}
+    ></button>
   );
 }
 
-export default Colorbutton;
+export default ColorButtons;
