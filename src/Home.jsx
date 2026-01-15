@@ -1,77 +1,119 @@
 import { useState } from "react";
-import Emojibutton from "./Emojibutton.jsx";
-import Colorbutton from "./colorbutton.jsx";
+import Emojibutton from "./components/Emojibutton";
+import Colorbutton from "./components/colorbutton";
 import "./Home.css";
+import { RotateCcw, RotateCw } from "lucide-react";
 
-function Home() {
-  const [emoji, setEmoji] = useState("😊");
-  const [slidervalue, setslidervalue] = useState(50);
-  const [bgcolor, setbgcolor] = useState("transparent");
+export default function Home() {
+  const [emoji, setEmoji] = useState("");
+  const [bgColor, setBgColor] = useState("#B9B28A");
+  const [size, setSize] = useState("50");
+  const [angle, setAngle] = useState(0);
 
   return (
-    <div className="min-h-screen w-full relative bg-white">
+    <div className="min-h-screen w-full bg-[#F8F3D9] relative">
+      <div>
+        <h1 className="text-center text-5xl pt-8 font-bold text-[#504B38] m-0">
+          Emoji Editor
+        </h1>
+        <p className="text-center text-xl my-5 text-gray-500">
+          Create your perfect emoji with endless customization options
+        </p>
+      </div>
 
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #ec4899 100%)",
-          backgroundSize: "100% 100%",
-        }}
-      />
-
-      <div className="relative z-10">
-        <h1 className="header">Emoji Editor</h1>
-
-        <h2 className="description">
-          This is a simple application that users can use for fun with emoji
-        </h2>
-
-        {/* Emoji display */}
+      <div className="flex flex-col justify-evenly items-center my-0 md:my-20 md:flex-row">
         <div
-          className="emoji-container"
-          style={{
-            fontSize: `${slidervalue}px`,
-            backgroundColor: bgcolor,
-          }}
+          className="h-[300px] w-[310px] md:h-[400px] md:w-[400px] mx-5 flex justify-center items-center rounded-xl shadow-2xl"
+          style={{ backgroundColor: bgColor }}
         >
-          {emoji}
+          <span
+            style={{
+              fontSize: `${size}px`,
+              transform: `rotate(${angle}deg)`
+            }}
+          >
+            {emoji}
+          </span>
         </div>
 
-        {/* Slider */}
-        <div className="slider-container">
-          {slidervalue}
-          <input
-            type="range"
-            min="0"
-            max="100"
-            className="slider"
-            value={slidervalue}
-            onChange={(e) => setslidervalue(Number(e.target.value))}
-          />
-        </div>
+        <div className="my-5 h-[300px] w-[310px] md:h-[400px] md:w-[600px] mx-5 bg-[#F9F8F6] p-5 rounded-lg shadow-xl overflow-y-scroll">
+          <p className="text-2xl text-gray-500">Customize Your Emoji</p>
+          <p className="text-lg text-gray-500 my-3">
+            Create your perfect emoji with these controls
+          </p>
 
-        {/* Emoji buttons */}
-        <div className="emoji-picker">
-          <Emojibutton emoji="😇" setEmoji={setEmoji} />
-          <Emojibutton emoji="😄" setEmoji={setEmoji} />
-          <Emojibutton emoji="😎" setEmoji={setEmoji} />
-          <Emojibutton emoji="🎯" setEmoji={setEmoji} />
-          <Emojibutton emoji="🌈" setEmoji={setEmoji} />
-          <Emojibutton emoji="🔥" setEmoji={setEmoji} />
-        </div>
+          <hr className="text-gray-500" />
 
-        {/* Color buttons */}
-        <div className="color-picker">
-          <Colorbutton bgcolor="red" setbgcolor={setbgcolor} />
-          <Colorbutton bgcolor="maroon" setbgcolor={setbgcolor} />
-          <Colorbutton bgcolor="blue" setbgcolor={setbgcolor} />
-          <Colorbutton bgcolor="brown" setbgcolor={setbgcolor} />
+          <p className="text-2xl my-4 text-gray-500">Emoji</p>
+          <div className="flex flex-wrap">
+            <Emojibutton emoji={""} setEmoji={setEmoji} />
+            <Emojibutton emoji={"❤"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🧡"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"💛"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"💚"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🩵"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"💙"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"💜"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🖤"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🩶"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🤍"} setEmoji={setEmoji} />
+            <Emojibutton emoji={"🤎"} setEmoji={setEmoji} />
+          </div>
+
+          <br />
+          <hr className="text-gray-500" />
+
+          <p className="text-2xl my-4 text-gray-500">Background Colors</p>
+          <div className="flex flex-wrap">
+            <Colorbutton bgColor={"#B9B28A"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#FFD97D"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#F7A072"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#A72703"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#B8C4A9"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#6FA4AF"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#A376A2"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#57564F"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#C0C9EE"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#F6F0F0"} setBgColor={setBgColor} />
+            <Colorbutton bgColor={"#FDB7EA"} setBgColor={setBgColor} />
+          </div>
+
+          <br />
+          <hr className="text-gray-500" />
+
+          <p className="text-2xl my-4 text-gray-500">Size</p>
+          <div className="flex items-center">
+            <span className="text-xl text-gray-500 mr-2">{size}</span>
+            <input
+              type="range"
+              min="0"
+              max="200"
+              className="w-[250px] cursor-pointer"
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
+            />
+          </div>
+
+          <br />
+          <hr className="text-gray-500" />
+
+          <p className="text-2xl my-4 text-gray-500">Rotate</p>
+          <div className="flex items-center">
+            <RotateCcw
+              size={30}
+              color="gray"
+              className="mr-3 cursor-pointer"
+              onClick={() => angle > 0 && setAngle(angle - 45)}
+            />
+            <RotateCw
+              size={30}
+              color="gray"
+              className="ml-3 cursor-pointer"
+              onClick={() => angle < 360 && setAngle(angle + 45)}
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Home;
